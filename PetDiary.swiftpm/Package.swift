@@ -15,7 +15,7 @@ let package = Package(
             targets: ["AppModule"],
             bundleIdentifier: "com.chamala.petlogbook",
             teamIdentifier: "T3MS8GM9TK",
-            displayVersion: "1.0",
+            displayVersion: "1.0.0",
             bundleVersion: "1",
             appIcon: .asset("AppIcon"),
             accentColor: .asset("AccentColor"),
