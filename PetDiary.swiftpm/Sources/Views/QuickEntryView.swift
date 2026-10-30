@@ -11,6 +11,7 @@ struct QuickEntryView: View {
     @State private var drafts: [Entry] = []
     @State private var isParsing = false
     @State private var errorMessage: String?
+    @FocusState private var isTextFocused: Bool
 
     private let parser = QuickEntryParser()
 
@@ -29,8 +30,12 @@ struct QuickEntryView: View {
                             axis: .vertical
                         )
                         .lineLimit(3...6)
+                        .focused($isTextFocused)
 
                         Button {
+                            // Многострочное поле не закрывает клавиатуру по Return,
+                            // поэтому прячем её сами, чтобы были видны черновики.
+                            isTextFocused = false
                             Task { await parse() }
                         } label: {
                             if isParsing {
@@ -61,6 +66,7 @@ struct QuickEntryView: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle("Quick Entry")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

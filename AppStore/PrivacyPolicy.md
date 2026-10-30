@@ -30,4 +30,4 @@ If this policy changes, the updated version will be posted at this address with 
 
 ## Contact
 
-Questions about this policy: [CONTACT EMAIL]
+Questions about this policy: [maratismodest@gmail.com](mailto:maratismodest@gmail.com)

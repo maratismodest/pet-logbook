@@ -50,9 +50,13 @@ pet,dog,cat,health,vet,log,tracker,feeding,walk,symptom,medication,vaccine,journ
 
 | Field | Value |
 |---|---|
-| Support URL | Нужен ваш URL, например страница репозитория на GitHub |
-| Privacy Policy URL | Нужен ваш URL: опубликуйте `AppStore/PrivacyPolicy.md`, например через GitHub Pages |
+| Support URL | Страница `docs/index.md`, например `https://maratismodest.github.io/pet-logbook/` |
+| Privacy Policy URL | Страница `docs/privacy.md`, например `https://maratismodest.github.io/pet-logbook/privacy` |
 | Marketing URL | Необязательно |
+
+Страницы лежат в `docs/` и готовы для GitHub Pages (Settings → Pages → Branch: main, folder: /docs). Репозиторий сейчас приватный, а Pages для приватных репозиториев требует платного плана. Варианты: сделать репозиторий публичным, вынести `docs/` в отдельный публичный репозиторий или разместить страницы на любом другом хостинге.
+
+Скриншоты с демо-данными: в Debug-сборке запустите приложение с аргументом `-seedDemoData` (Scheme → Run → Arguments) на чистом симуляторе.
 
 ## App Privacy (nutrition label)
 
@@ -77,8 +81,13 @@ The app doesn't provide medical advice. The summary includes a disclaimer that i
 
 ## Screenshots
 
-Нужны скриншоты для:
-- iPhone 6.9" (1320 × 2868 или 1290 × 2796).
-- iPad 13" (2064 × 2752 или 2048 × 2732), потому что приложение поддерживает iPad.
+Готовы в `AppStore/Screenshots/` (снято на симуляторе с демо-данными `-seedDemoData`):
 
-Рекомендуемые экраны: список питомцев, лента записей, Quick Entry с разобранными записями, Vet Summary, лист «Поделиться» с PDF.
+| Папка | Размер | Файлы |
+|---|---|---|
+| `iPhone/` (6.9") | 1320 × 2868 | 01-pets, 02-timeline, 03-vet-summary, 06-add-entry |
+| `iPad/` (13") | 2064 × 2752 | 01-pets, 02-timeline, 03-vet-summary, 04-add-entry |
+
+Рекомендуемый порядок загрузки: 02-timeline, 03-vet-summary, 01-pets, add-entry. Лента лучше всего показывает приложение, поэтому её стоит поставить первой.
+
+Apple Intelligence в симуляторе не работает, поэтому скриншотов Quick Entry с разобранными записями и Vet Summary с текстом от модели нет. Их можно снять на устройстве с Apple Intelligence и поставить первыми.

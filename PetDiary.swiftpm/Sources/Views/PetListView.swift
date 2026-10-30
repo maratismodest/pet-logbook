@@ -45,6 +45,9 @@ struct PetListView: View {
             .sheet(isPresented: $isAddingPet) {
                 AddPetView()
             }
+            #if DEBUG
+            .onAppear { DemoData.seedIfRequested(in: modelContext) }
+            #endif
         }
     }
 
