@@ -1,12 +1,12 @@
-# Pet Diary Privacy Policy
+# Pet Logbook Privacy Policy
 
 _Last updated: October 30, 2026_
 
-Pet Diary is designed to keep your information private.
+Pet Logbook is designed to keep your information private.
 
 ## Data we collect
 
-None. Pet Diary doesn't collect, store, or transmit any personal data to us or to third parties. The app has no accounts, analytics, advertising, or tracking.
+None. Pet Logbook doesn't collect, store, or transmit any personal data to us or to third parties. The app has no accounts, analytics, advertising, or tracking.
 
 ## Data stored on your device
 
@@ -22,7 +22,7 @@ A Vet Summary PDF is shared only when you choose to share it, using the system s
 
 ## Children
 
-Pet Diary doesn't knowingly collect any information from anyone, including children.
+Pet Logbook doesn't knowingly collect any information from anyone, including children.
 
 ## Changes
 

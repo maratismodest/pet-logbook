@@ -1,4 +1,4 @@
-# App Store Connect — Pet Diary
+# App Store Connect — Pet Logbook
 
 Тексты для страницы приложения в App Store Connect. Язык страницы: English (U.S.).
 
@@ -6,8 +6,8 @@
 
 | Field | Value |
 |---|---|
-| Name (max 30) | Pet Diary – Vet Notes |
-| Subtitle (max 30) | Feeding, walks & vet summaries |
+| Name (max 30) | Pet Logbook: Health & Vet |
+| Subtitle (max 30) | Feeding, walks & symptoms log |
 | Bundle ID | com.petlogbook.PetDiary |
 | SKU | petdiary-ios-001 |
 | Primary category | Lifestyle |
@@ -15,7 +15,7 @@
 | Age rating | 4+ (no objectionable content) |
 | Price | Free |
 
-Если имя «Pet Diary – Vet Notes» занято, варианты: «Pet Logbook: Vet Summary», «Paw Diary: Pet Health Log».
+Имя на домашнем экране: «Pet Logbook». Если имя в App Store занято, варианты: «Pet Logbook: Vet Summary», «Paw Logbook: Pet Health», «Pet Diary – Vet Notes».
 
 ## Promotional Text (max 170)
 
@@ -23,7 +23,7 @@ Log feedings, walks, symptoms, and medications in seconds. Before a vet visit, g
 
 ## Description (max 4000)
 
-Pet Diary keeps your pet's daily life and health in one place, so you're ready when the vet asks "When did this start?"
+Pet Logbook keeps your pet's daily life and health in one place, so you're ready when the vet asks "When did this start?"
 
 LOG EVERYTHING IN SECONDS
 • Feedings with portion sizes
@@ -32,19 +32,21 @@ LOG EVERYTHING IN SECONDS
 • Filter the timeline by entry type
 
 QUICK ENTRY
-Type it the way you'd say it — "Fed 100 g of kibble at 9 am, then a 30-minute walk" — and Pet Diary turns it into separate entries for you to review. Quick Entry uses Apple Intelligence on supported devices.
+Type it the way you'd say it — "Fed 100 g of kibble at 9 am, then a 30-minute walk" — and Pet Logbook turns it into separate entries for you to review. Quick Entry uses Apple Intelligence on supported devices.
 
 VET SUMMARY
-Choose the last 7, 30, or 90 days and get a one-page summary: diet and activity, every symptom and medication with dates, and vaccination history. On devices with Apple Intelligence, Pet Diary also writes a short overview, highlights recurring symptoms, and suggests questions to ask your vet. Share the summary as a PDF in one tap.
+Choose the last 7, 30, or 90 days and get a one-page summary: diet and activity, every symptom and medication with dates, and vaccination history. On devices with Apple Intelligence, Pet Logbook also writes a short overview, highlights recurring symptoms, and suggests questions to ask your vet. Share the summary as a PDF in one tap.
 
 PRIVATE BY DESIGN
-Your diary stays on your device. Pet Diary has no accounts, no ads, and no tracking. Smart features run entirely on device.
+Your diary stays on your device. Pet Logbook has no accounts, no ads, and no tracking. Smart features run entirely on device.
 
-Pet Diary helps you keep notes. It doesn't provide medical advice or diagnoses. Always consult a veterinarian about your pet's health.
+Pet Logbook helps you keep notes. It doesn't provide medical advice or diagnoses. Always consult a veterinarian about your pet's health.
 
 ## Keywords (max 100, comma-separated, no spaces)
 
-pet,dog,cat,health,vet,log,tracker,feeding,walk,symptom,medication,vaccine,journal,puppy,care
+Слова из названия и подзаголовка (pet, health, vet, feeding, walks, symptoms, log) App Store уже учитывает, поэтому здесь они не повторяются.
+
+dog,cat,puppy,kitten,tracker,diary,journal,medication,vaccine,food,care,pdf,veterinarian
 
 ## URLs
 
@@ -71,7 +73,7 @@ pet,dog,cat,health,vet,log,tracker,feeding,walk,symptom,medication,vaccine,journ
 
 ## Notes for App Review
 
-Pet Diary is a pet health journal. No account or login is required.
+Pet Logbook is a pet health journal. No account or login is required.
 
 Quick Entry and the written part of the Vet Summary use the on-device Foundation Models framework (Apple Intelligence). On devices without Apple Intelligence, or when it's turned off, the app explains why these features are unavailable, and everything else works: manual entries, the timeline, and the Vet Summary with all recorded facts and PDF export.
 

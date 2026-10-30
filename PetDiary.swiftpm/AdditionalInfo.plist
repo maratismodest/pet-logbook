@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Pet Diary</string>
+	<string>Pet Logbook</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>
