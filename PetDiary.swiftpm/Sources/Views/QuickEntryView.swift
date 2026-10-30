@@ -17,7 +17,7 @@ struct QuickEntryView: View {
     var body: some View {
         NavigationStack {
             Form {
-                if let reason = QuickEntryParser.unavailableReason {
+                if let reason = ModelAvailability.unavailableReason {
                     Section {
                         Label(reason, systemImage: "exclamationmark.triangle")
                     }
@@ -88,7 +88,7 @@ struct QuickEntryView: View {
                 errorMessage = "Не нашёл событий в тексте. Попробуйте описать подробнее."
             }
         } catch {
-            errorMessage = error.localizedDescription
+            errorMessage = ModelAvailability.message(for: error)
         }
     }
 }

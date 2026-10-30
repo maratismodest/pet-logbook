@@ -36,6 +36,13 @@ struct PetDetailView: View {
                 }
             }
             ToolbarItem(placement: .secondaryAction) {
+                NavigationLink {
+                    VetReportView(pet: pet)
+                } label: {
+                    Label("Сводка для врача", systemImage: "doc.text.magnifyingglass")
+                }
+            }
+            ToolbarItem(placement: .secondaryAction) {
                 Picker("Фильтр", selection: $filter) {
                     Text("Все").tag(EntryKind?.none)
                     ForEach(EntryKind.allCases) { kind in

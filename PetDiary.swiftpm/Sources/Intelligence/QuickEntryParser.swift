@@ -49,36 +49,8 @@ struct ParsedEntries {
 /// которые нельзя передавать между акторами.
 @MainActor
 struct QuickEntryParser {
-    enum ParserError: LocalizedError {
-        case modelUnavailable(String)
-
-        var errorDescription: String? {
-            switch self {
-            case .modelUnavailable(let reason): reason
-            }
-        }
-    }
-
-    /// Человекочитаемая причина, если модель недоступна; `nil`, если всё готово.
-    static var unavailableReason: String? {
-        switch SystemLanguageModel.default.availability {
-        case .available:
-            return nil
-        case .unavailable(.appleIntelligenceNotEnabled):
-            return "Включите Apple Intelligence в Настройках, чтобы пользоваться быстрой записью."
-        case .unavailable(.deviceNotEligible):
-            return "Это устройство не поддерживает Apple Intelligence. Добавляйте записи вручную."
-        case .unavailable(.modelNotReady):
-            return "Модель ещё загружается. Попробуйте чуть позже."
-        case .unavailable:
-            return "Модель сейчас недоступна."
-        }
-    }
-
     func parse(_ text: String, petName: String) async throws -> [Entry] {
-        if let reason = Self.unavailableReason {
-            throw ParserError.modelUnavailable(reason)
-        }
+        try ModelAvailability.requireAvailable()
 
         // Новая сессия на каждый запрос: записи независимы, история не нужна.
         let session = LanguageModelSession {
