@@ -25,22 +25,22 @@ enum ParsedKind {
 struct ParsedEntry {
     var kind: ParsedKind
 
-    @Guide(description: "Краткое описание события на русском, без даты и времени")
+    @Guide(description: "Short description of the event, without date or time")
     var note: String
 
-    @Guide(description: "Длительность в минутах, только если явно указана")
+    @Guide(description: "Duration in minutes, only if explicitly stated")
     var durationMinutes: Int?
 
-    @Guide(description: "Количество корма в граммах, только если явно указано")
+    @Guide(description: "Amount of food in grams, only if explicitly stated")
     var grams: Int?
 
-    @Guide(description: "Час события от 0 до 23, только если время явно указано")
+    @Guide(description: "Hour of the event from 0 to 23, only if a time is explicitly stated")
     var hourOfDay: Int?
 }
 
 @Generable
 struct ParsedEntries {
-    @Guide(description: "Все отдельные события, упомянутые во фразе пользователя")
+    @Guide(description: "Every separate event mentioned in the owner's text")
     var entries: [ParsedEntry]
 }
 
@@ -55,10 +55,10 @@ struct QuickEntryParser {
         // Новая сессия на каждый запрос: записи независимы, история не нужна.
         let session = LanguageModelSession {
             """
-            Ты помогаешь вести дневник питомца по кличке \(petName).
-            Разбей фразу владельца на отдельные события: кормление, прогулка, \
-            симптом, лекарство или прививка.
-            Не придумывай данные, которых нет во фразе. Не ставь диагнозов.
+            You help keep a diary for a pet named \(petName).
+            Split the owner's text into separate events: feeding, walk, \
+            symptom, medication, or vaccination.
+            Don't invent details that aren't in the text. Don't diagnose.
             """
         }
 

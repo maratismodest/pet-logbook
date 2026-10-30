@@ -14,13 +14,13 @@ enum ModelAvailability {
         case .available:
             return nil
         case .unavailable(.appleIntelligenceNotEnabled):
-            return "Включите Apple Intelligence в Настройках, чтобы пользоваться функциями на основе модели."
+            return "Turn on Apple Intelligence in Settings to use smart features."
         case .unavailable(.deviceNotEligible):
-            return "Это устройство не поддерживает Apple Intelligence."
+            return "This device doesn't support Apple Intelligence."
         case .unavailable(.modelNotReady):
-            return "Модель ещё загружается. Попробуйте чуть позже."
+            return "The model is still downloading. Try again a little later."
         case .unavailable:
-            return "Модель сейчас недоступна."
+            return "The model isn't available right now."
         }
     }
 
@@ -42,15 +42,15 @@ enum ModelAvailability {
         if let error = error as? LanguageModelError {
             switch error {
             case .guardrailViolation, .refusal:
-                return "Модель отказалась обрабатывать этот текст из-за правил безопасности. Попробуйте переформулировать."
+                return "The model declined to process this text due to safety rules. Try rephrasing it."
             case .contextSizeExceeded:
-                return "Записей слишком много для одного запроса. Выберите период покороче."
+                return "There are too many entries for one request. Choose a shorter period."
             case .unsupportedLanguageOrLocale:
-                return "Модель не поддерживает язык этого текста."
+                return "The model doesn't support the language of this text."
             default:
                 break
             }
         }
-        return "Модель не смогла обработать запрос. Попробуйте ещё раз позже."
+        return "The model couldn't process the request. Try again later."
     }
 }

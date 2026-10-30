@@ -24,7 +24,7 @@ struct QuickEntryView: View {
                 } else {
                     Section {
                         TextField(
-                            "Например: погуляли 40 минут, хромал на заднюю лапу",
+                            "For example: 40-minute walk, limping on a back leg",
                             text: $text,
                             axis: .vertical
                         )
@@ -36,12 +36,12 @@ struct QuickEntryView: View {
                             if isParsing {
                                 ProgressView()
                             } else {
-                                Label("Разобрать", systemImage: "sparkles")
+                                Label("Create Entries", systemImage: "sparkles")
                             }
                         }
                         .disabled(text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isParsing)
                     } footer: {
-                        Text("Текст обрабатывается на устройстве и никуда не отправляется.")
+                        Text("Your text is processed on this device and never leaves it.")
                     }
                 }
 
@@ -53,7 +53,7 @@ struct QuickEntryView: View {
                 }
 
                 if !drafts.isEmpty {
-                    Section("Проверьте записи") {
+                    Section("Review Entries") {
                         ForEach(drafts) { entry in
                             EntryRow(entry: entry)
                         }
@@ -61,13 +61,13 @@ struct QuickEntryView: View {
                     }
                 }
             }
-            .navigationTitle("Быстрая запись")
+            .navigationTitle("Quick Entry")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена") { dismiss() }
+                    Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Сохранить") {
+                    Button("Save") {
                         pet.entries.append(contentsOf: drafts)
                         dismiss()
                     }
@@ -85,7 +85,7 @@ struct QuickEntryView: View {
         do {
             drafts = try await parser.parse(text, petName: pet.name)
             if drafts.isEmpty {
-                errorMessage = "Не нашёл событий в тексте. Попробуйте описать подробнее."
+                errorMessage = "No events found in the text. Try adding more detail."
             }
         } catch {
             errorMessage = ModelAvailability.message(for: error)

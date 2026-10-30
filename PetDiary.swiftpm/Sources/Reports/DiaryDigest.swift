@@ -10,9 +10,9 @@ enum ReportPeriod: Int, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .week: "7 дней"
-        case .month: "30 дней"
-        case .quarter: "90 дней"
+        case .week: "7 days"
+        case .month: "30 days"
+        case .quarter: "90 days"
         }
     }
 }
@@ -104,14 +104,14 @@ struct DiaryDigest {
     }
 
     var feedingText: String {
-        var text = "Кормлений: \(feedingCount)"
-        if let averageGramsPerFeeding { text += ", в среднем \(averageGramsPerFeeding) г за раз" }
+        var text = "Feedings: \(feedingCount)"
+        if let averageGramsPerFeeding { text += ", \(averageGramsPerFeeding) g per meal on average" }
         return text
     }
 
     var walkText: String {
-        var text = "Прогулок: \(walkCount)"
-        if let averageWalkMinutes { text += ", в среднем \(averageWalkMinutes) мин" }
+        var text = "Walks: \(walkCount)"
+        if let averageWalkMinutes { text += ", \(averageWalkMinutes) min on average" }
         return text
     }
 
@@ -120,8 +120,8 @@ struct DiaryDigest {
         let components = Calendar.current.dateComponents([.year, .month], from: birthDate, to: end)
         let years = components.year ?? 0
         let months = components.month ?? 0
-        if years > 0 { return "\(years) г. \(months) мес." }
-        return "\(months) мес."
+        if years > 0 { return "\(years) yr \(months) mo" }
+        return "\(months) mo"
     }
 
     /// Компактный текст для модели: агрегаты вместо сырых записей кормления и прогулок,
@@ -129,29 +129,29 @@ struct DiaryDigest {
     var promptText: String {
         let dateFormat = Date.FormatStyle.dateTime.day().month(.twoDigits).hour().minute()
         func render(_ lines: [Line], limit: Int) -> String {
-            guard !lines.isEmpty else { return "нет" }
+            guard !lines.isEmpty else { return "none" }
             // Берём самые свежие записи, если их больше лимита.
             let recent = lines.suffix(limit)
             var text = recent
                 .map { "- \($0.date.formatted(dateFormat)): \($0.text)" }
                 .joined(separator: "\n")
             if lines.count > limit {
-                text = "(показаны последние \(limit) из \(lines.count))\n" + text
+                text = "(showing the latest \(limit) of \(lines.count))\n" + text
             }
             return text
         }
 
         return """
-        Питомец: \(petName), \(species)\(ageText.map { ", возраст \($0)" } ?? "")
-        Период: \(days) дней
+        Pet: \(petName), \(species)\(ageText.map { ", age \($0)" } ?? "")
+        Period: \(days) days
 
         \(feedingText)
         \(walkText)
 
-        Симптомы:
+        Symptoms:
         \(render(symptoms, limit: Self.promptSymptomLimit))
 
-        Лекарства:
+        Medications:
         \(render(medications, limit: Self.promptMedicationLimit))
         """
     }

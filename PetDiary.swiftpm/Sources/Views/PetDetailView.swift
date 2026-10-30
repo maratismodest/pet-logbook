@@ -26,11 +26,11 @@ struct PetDetailView: View {
         .navigationTitle(pet.name)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Menu("Добавить", systemImage: "plus") {
-                    Button("Быстрая запись", systemImage: "sparkles") {
+                Menu("Add", systemImage: "plus") {
+                    Button("Quick Entry", systemImage: "sparkles") {
                         isQuickEntryShown = true
                     }
-                    Button("Вручную", systemImage: "square.and.pencil") {
+                    Button("Manual Entry", systemImage: "square.and.pencil") {
                         isAddingEntry = true
                     }
                 }
@@ -39,12 +39,12 @@ struct PetDetailView: View {
                 NavigationLink {
                     VetReportView(pet: pet)
                 } label: {
-                    Label("Сводка для врача", systemImage: "doc.text.magnifyingglass")
+                    Label("Vet Summary", systemImage: "doc.text.magnifyingglass")
                 }
             }
             ToolbarItem(placement: .secondaryAction) {
-                Picker("Фильтр", selection: $filter) {
-                    Text("Все").tag(EntryKind?.none)
+                Picker("Filter", selection: $filter) {
+                    Text("All").tag(EntryKind?.none)
                     ForEach(EntryKind.allCases) { kind in
                         Label(kind.title, systemImage: kind.systemImage)
                             .tag(EntryKind?.some(kind))
@@ -55,9 +55,9 @@ struct PetDetailView: View {
         .overlay {
             if visibleEntries.isEmpty {
                 ContentUnavailableView(
-                    "Записей нет",
+                    "No Entries",
                     systemImage: "list.bullet.clipboard",
-                    description: Text("Добавьте кормление, прогулку или симптом.")
+                    description: Text("Add a feeding, walk, or symptom.")
                 )
             }
         }

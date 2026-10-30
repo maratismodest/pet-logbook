@@ -15,30 +15,30 @@ struct AddEntryView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Тип", selection: $kind) {
+                Picker("Type", selection: $kind) {
                     ForEach(EntryKind.allCases) { kind in
                         Label(kind.title, systemImage: kind.systemImage).tag(kind)
                     }
                 }
-                DatePicker("Когда", selection: $date)
-                TextField("Заметка", text: $note, axis: .vertical)
+                DatePicker("When", selection: $date)
+                TextField("Note", text: $note, axis: .vertical)
 
                 if kind == .walk {
-                    TextField("Длительность, мин", value: $durationMinutes, format: .number)
+                    TextField("Duration, min", value: $durationMinutes, format: .number)
                         .keyboardType(.numberPad)
                 }
                 if kind == .feeding {
-                    TextField("Количество, г", value: $grams, format: .number)
+                    TextField("Amount, g", value: $grams, format: .number)
                         .keyboardType(.numberPad)
                 }
             }
-            .navigationTitle("Новая запись")
+            .navigationTitle("New Entry")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена") { dismiss() }
+                    Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Сохранить") {
+                    Button("Save") {
                         let entry = Entry(
                             kind: kind,
                             date: date,

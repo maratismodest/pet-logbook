@@ -5,13 +5,13 @@ import FoundationModels
 /// их считает `DiaryDigest`, чтобы модель не могла их исказить.
 @Generable
 struct VetSummary {
-    @Guide(description: "Два-три предложения о состоянии питомца за период, только по фактам из записей")
+    @Guide(description: "Two or three sentences about the pet's condition over the period, based only on the diary entries")
     var overview: String
 
-    @Guide(description: "Повторяющиеся или заметные симптомы и изменения, без диагнозов", .maximumCount(5))
+    @Guide(description: "Recurring or notable symptoms and changes, without diagnoses", .maximumCount(5))
     var concerns: [String]
 
-    @Guide(description: "Вопросы, которые владельцу стоит задать ветеринару", .maximumCount(5))
+    @Guide(description: "Questions the owner should ask the vet", .maximumCount(5))
     var questionsForVet: [String]
 }
 
@@ -22,14 +22,13 @@ struct VetSummaryGenerator {
 
         let session = LanguageModelSession {
             """
-            Ты помогаешь владельцу подготовиться к визиту к ветеринару.
-            По записям дневника кратко опиши, что происходило с питомцем.
-            Опирайся только на данные из записей, ничего не придумывай.
-            Не ставь диагнозов и не назначай лечение.
-            Замечай повторы: один и тот же симптом несколько раз, связь симптомов \
-            с кормлением, лекарствами или прогулками.
-            Если записей мало, так и скажи.
-            Пиши по-русски.
+            You help a pet owner prepare for a vet visit.
+            Briefly describe what happened with the pet, based on the diary entries.
+            Use only the data from the entries and don't invent anything.
+            Don't diagnose and don't recommend treatment.
+            Look for patterns: the same symptom repeating, or symptoms that relate \
+            to feeding, medications, or walks.
+            If there are only a few entries, say so.
             """
         }
 

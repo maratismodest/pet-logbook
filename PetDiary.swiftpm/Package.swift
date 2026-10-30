@@ -5,7 +5,7 @@ import AppleProductTypes
 
 let package = Package(
     name: "PetDiary",
-    defaultLocalization: "ru",
+    defaultLocalization: "en",
     platforms: [
         .iOS("27.0")
     ],

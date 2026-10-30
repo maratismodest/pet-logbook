@@ -19,7 +19,7 @@ struct VetReportView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Picker("Период", selection: $period) {
+                Picker("Period", selection: $period) {
                     ForEach(ReportPeriod.allCases) { period in
                         Text(period.title).tag(period)
                     }
@@ -32,13 +32,13 @@ struct VetReportView: View {
             }
             .padding()
         }
-        .navigationTitle("Сводка для врача")
+        .navigationTitle("Vet Summary")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 if let pdfURL {
                     ShareLink(item: pdfURL) {
-                        Label("Поделиться PDF", systemImage: "square.and.arrow.up")
+                        Label("Share PDF", systemImage: "square.and.arrow.up")
                     }
                 }
             }
@@ -59,7 +59,7 @@ struct VetReportView: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         } else if digest.isEmpty {
-            Text("За этот период нет записей.")
+            Text("No entries for this period.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         } else {
@@ -70,7 +70,7 @@ struct VetReportView: View {
                     ProgressView()
                         .frame(maxWidth: .infinity)
                 } else {
-                    Label(summary == nil ? "Составить резюме" : "Составить заново", systemImage: "sparkles")
+                    Label(summary == nil ? "Write Summary" : "Rewrite Summary", systemImage: "sparkles")
                         .frame(maxWidth: .infinity)
                 }
             }
@@ -94,13 +94,13 @@ struct VetReportView: View {
             summary = try await generator.generate(from: digest)
             exportPDF()
         } catch {
-            errorMessage = "Не удалось составить резюме. \(ModelAvailability.message(for: error)) Факты ниже от модели не зависят."
+            errorMessage = "Couldn't write the summary. \(ModelAvailability.message(for: error)) The facts below don't depend on the model."
         }
     }
 
     /// PDF готовится заранее, чтобы кнопка «Поделиться» работала сразу.
     private func exportPDF() {
-        let fileName = "Сводка — \(pet.name)"
+        let fileName = "Vet Summary – \(pet.name)"
         pdfURL = try? PDFExporter.export(
             VetReportContent(digest: digest, summary: summary),
             fileName: fileName

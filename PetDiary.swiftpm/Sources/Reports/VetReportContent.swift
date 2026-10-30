@@ -13,40 +13,40 @@ struct VetReportContent: View {
             header
 
             if let summary {
-                section("Кратко") {
+                section("Overview") {
                     Text(summary.overview)
                 }
                 if !summary.concerns.isEmpty {
-                    section("На что обратить внимание") {
+                    section("Worth noting") {
                         bulletList(summary.concerns)
                     }
                 }
             }
 
-            section("Питание и активность") {
+            section("Diet and activity") {
                 Text(digest.feedingText)
                 Text(digest.walkText)
             }
 
-            section("Симптомы") {
-                datedList(digest.symptoms, empty: "Не отмечались")
+            section("Symptoms") {
+                datedList(digest.symptoms, empty: "None recorded")
             }
 
-            section("Лекарства") {
-                datedList(digest.medications, empty: "Не давались")
+            section("Medications") {
+                datedList(digest.medications, empty: "None given")
             }
 
-            section("Прививки (за всё время)") {
-                datedList(digest.vaccinations, empty: "Нет записей", format: dateFormat)
+            section("Vaccinations (all time)") {
+                datedList(digest.vaccinations, empty: "No records", format: dateFormat)
             }
 
             if let summary, !summary.questionsForVet.isEmpty {
-                section("Вопросы врачу") {
+                section("Questions for the vet") {
                     bulletList(summary.questionsForVet)
                 }
             }
 
-            Text("Сводка составлена по записям владельца и не является медицинским заключением.")
+            Text("This summary is based on the owner's notes and is not a medical report.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

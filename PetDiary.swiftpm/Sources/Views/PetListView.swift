@@ -22,13 +22,13 @@ struct PetListView: View {
                 }
                 .onDelete(perform: deletePets)
             }
-            .navigationTitle("Питомцы")
+            .navigationTitle("Pets")
             .navigationDestination(for: Pet.self) { pet in
                 PetDetailView(pet: pet)
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button("Добавить питомца", systemImage: "plus") {
+                    Button("Add Pet", systemImage: "plus") {
                         isAddingPet = true
                     }
                 }
@@ -36,9 +36,9 @@ struct PetListView: View {
             .overlay {
                 if pets.isEmpty {
                     ContentUnavailableView(
-                        "Нет питомцев",
+                        "No Pets",
                         systemImage: "pawprint",
-                        description: Text("Добавьте питомца, чтобы начать вести дневник.")
+                        description: Text("Add a pet to start a diary.")
                     )
                 }
             }
@@ -67,20 +67,20 @@ struct AddPetView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Кличка", text: $name)
-                TextField("Вид и порода", text: $species)
-                Toggle("Указать дату рождения", isOn: $hasBirthDate)
+                TextField("Name", text: $name)
+                TextField("Species and breed", text: $species)
+                Toggle("Add birth date", isOn: $hasBirthDate)
                 if hasBirthDate {
-                    DatePicker("Дата рождения", selection: $birthDate, displayedComponents: .date)
+                    DatePicker("Birth date", selection: $birthDate, displayedComponents: .date)
                 }
             }
-            .navigationTitle("Новый питомец")
+            .navigationTitle("New Pet")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Отмена") { dismiss() }
+                    Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Сохранить") {
+                    Button("Save") {
                         let pet = Pet(
                             name: name.trimmingCharacters(in: .whitespaces),
                             species: species.trimmingCharacters(in: .whitespaces),

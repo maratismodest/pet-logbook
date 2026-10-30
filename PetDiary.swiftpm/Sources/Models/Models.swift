@@ -13,11 +13,11 @@ enum EntryKind: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .feeding: "Кормление"
-        case .walk: "Прогулка"
-        case .symptom: "Симптом"
-        case .medication: "Лекарство"
-        case .vaccination: "Прививка"
+        case .feeding: "Feeding"
+        case .walk: "Walk"
+        case .symptom: "Symptom"
+        case .medication: "Medication"
+        case .vaccination: "Vaccination"
         }
     }
 
@@ -82,8 +82,8 @@ final class Entry {
     /// Короткая строка с деталями: длительность, граммы.
     var detailText: String? {
         var parts: [String] = []
-        if let durationMinutes { parts.append("\(durationMinutes) мин") }
-        if let grams { parts.append("\(grams) г") }
+        if let durationMinutes { parts.append("\(durationMinutes) min") }
+        if let grams { parts.append("\(grams) g") }
         return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }
 }
