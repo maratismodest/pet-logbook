@@ -13,7 +13,7 @@ let package = Package(
         .iOSApplication(
             name: "PetDiary",
             targets: ["AppModule"],
-            bundleIdentifier: "com.petlogbook.PetDiary",
+            bundleIdentifier: "com.chamala.petlogbook",
             teamIdentifier: "T3MS8GM9TK",
             displayVersion: "1.0",
             bundleVersion: "1",

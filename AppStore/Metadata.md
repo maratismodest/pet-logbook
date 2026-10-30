@@ -8,7 +8,7 @@
 |---|---|
 | Name (max 30) | Pet Logbook: Health & Vet |
 | Subtitle (max 30) | Feeding, walks & symptoms log |
-| Bundle ID | com.petlogbook.PetDiary |
+| Bundle ID | com.chamala.petlogbook |
 | SKU | petdiary-ios-001 |
 | Primary category | Lifestyle |
 | Secondary category | Medical |
