@@ -6,7 +6,7 @@ struct VetReportContent: View {
     let summary: VetSummary?
 
     private let dateFormat = Date.FormatStyle.dateTime.day().month(.wide).year()
-    private let dateTimeFormat = Date.FormatStyle.dateTime.day().month(.twoDigits).hour().minute()
+    private let dateTimeFormat = Date.FormatStyle.dateTime.month(.abbreviated).day().hour().minute()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {

@@ -14,10 +14,11 @@ let package = Package(
             name: "PetDiary",
             targets: ["AppModule"],
             bundleIdentifier: "com.petlogbook.PetDiary",
+            teamIdentifier: "T3MS8GM9TK",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .dog),
-            accentColor: .presetColor(.orange),
+            appIcon: .asset("AppIcon"),
+            accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
@@ -27,7 +28,10 @@ let package = Package(
                 .landscapeRight,
                 .landscapeLeft,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
-            ]
+            ],
+            appCategory: .lifestyle,
+            // Имя на домашнем экране и ответ на вопрос о шифровании при загрузке в App Store.
+            additionalInfoPlistContentFilePath: "AdditionalInfo.plist"
         )
     ],
     targets: [
