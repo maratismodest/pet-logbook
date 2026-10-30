@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct PetDiaryApp: App {
+struct PetLogBookApp: App {
     var body: some Scene {
         WindowGroup {
             PetListView()

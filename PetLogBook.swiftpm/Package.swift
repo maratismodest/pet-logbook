@@ -4,14 +4,14 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "PetDiary",
+    name: "PetLogBook",
     defaultLocalization: "en",
     platforms: [
         .iOS("27.0")
     ],
     products: [
         .iOSApplication(
-            name: "PetDiary",
+            name: "PetLogBook",
             targets: ["AppModule"],
             bundleIdentifier: "com.chamala.petlogbook",
             teamIdentifier: "T3MS8GM9TK",
