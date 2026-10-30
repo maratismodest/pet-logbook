@@ -50,11 +50,11 @@ pet,dog,cat,health,vet,log,tracker,feeding,walk,symptom,medication,vaccine,journ
 
 | Field | Value |
 |---|---|
-| Support URL | Страница `docs/index.md`, например `https://maratismodest.github.io/pet-logbook/` |
-| Privacy Policy URL | Страница `docs/privacy.md`, например `https://maratismodest.github.io/pet-logbook/privacy` |
+| Support URL | https://maratismodest.github.io/pet-logbook/ |
+| Privacy Policy URL | https://maratismodest.github.io/pet-logbook/privacy |
 | Marketing URL | Необязательно |
 
-Страницы лежат в `docs/` и готовы для GitHub Pages (Settings → Pages → Branch: main, folder: /docs). Репозиторий сейчас приватный, а Pages для приватных репозиториев требует платного плана. Варианты: сделать репозиторий публичным, вынести `docs/` в отдельный публичный репозиторий или разместить страницы на любом другом хостинге.
+Страницы публикуются через GitHub Pages из папки `docs/` ветки `main`.
 
 Скриншоты с демо-данными: в Debug-сборке запустите приложение с аргументом `-seedDemoData` (Scheme → Run → Arguments) на чистом симуляторе.
 
