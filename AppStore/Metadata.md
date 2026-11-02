@@ -46,7 +46,21 @@ Pet Logbook helps you keep notes. It doesn't provide medical advice or diagnoses
 
 Слова из названия и подзаголовка (pet, health, vet, feeding, walks, symptoms, log) App Store уже учитывает, поэтому здесь они не повторяются.
 
-dog,cat,puppy,kitten,tracker,diary,journal,medication,vaccine,food,care,pdf,veterinarian
+dog,cat,puppy,kitten,tracker,diary,journal,meds,pill,vaccine,food,diet,care,pdf,record,history,notes
+
+(100 символов. Единственное число покрывает множественное, поэтому `dogs`, `cats` не нужны. «veterinarian» убрано: `vet` уже есть в названии.)
+
+### Дополнительные английские локализации
+
+Каждая локализация — это отдельные 100 символов ключевых слов в своей стране. В App Store Connect: App Information → Localizable Information → добавить язык. Name, Subtitle, Description и Promotional Text копируются из English (U.S.), меняются только ключевые слова.
+
+| Локализация | Где индексируется | Keywords |
+|---|---|---|
+| English (U.K.) | Великобритания, Ирландия и др. | dog,cat,puppy,kitten,tracker,diary,journal,medicine,jab,vaccination,food,diet,care,pdf,record,notes |
+| English (Australia) | Австралия, Новая Зеландия | dog,cat,puppy,kitten,tracker,diary,journal,medicine,vaccination,food,care,pdf,record,history,notes |
+| English (Canada) | Канада | dog,cat,puppy,kitten,tracker,diary,journal,medicine,vaccination,food,diet,care,pdf,record,history |
+
+Приложение не напоминает о событиях и не отслеживает вес, поэтому слова `reminder` и `weight` намеренно не используются: App Review отклоняет ключевые слова, не соответствующие функциям.
 
 ## URLs
 
@@ -70,6 +84,44 @@ dog,cat,puppy,kitten,tracker,diary,journal,medication,vaccine,food,care,pdf,vete
 ## Export Compliance
 
 `ITSAppUsesNonExemptEncryption = NO` уже стоит в Info.plist, поэтому App Store Connect не будет спрашивать о шифровании при каждой загрузке.
+
+## Age Rating (questionnaire)
+
+На все вопросы анкеты ответ **None / No**:
+
+- Насилие, сексуальный контент, ненормативная лексика, хоррор, азартные игры, алкоголь/табак/наркотики — None.
+- Medical or Treatment Information — None. Приложение хранит заметки владельца и не даёт медицинских рекомендаций.
+- Unrestricted Web Access — No. User-Generated Content (публичный) — No. Messaging/Chat — No. Advertising — No. Parental Controls / Age Assurance — No.
+
+Итог: **4+**.
+
+## Pricing and Availability
+
+| Field | Value |
+|---|---|
+| Price | Free (Tier 0) |
+| Availability | All countries or regions |
+| Pre-order | No |
+| Apple Silicon Mac / Vision Pro | Можно оставить включённым (приложение iPhone/iPad) |
+
+## Version Information (1.0.0)
+
+| Field | Value |
+|---|---|
+| Copyright | 2026 Marat Faizerakhmanov |
+| What's New | Не заполняется для первой версии |
+| Version release | Manually release this version (выпустить вручную после одобрения) |
+| Content Rights | Does not contain, show, or access third-party content |
+| Sign-in required | No (снять галочку «Sign-in required» в App Review Information) |
+
+## App Review Information
+
+| Field | Value |
+|---|---|
+| First / Last name | Marat Faizerakhmanov |
+| Email | maratismodest@gmail.com |
+| Phone | Указать свой номер в международном формате (+…) |
+| Demo account | Не нужен |
 
 ## Notes for App Review
 
